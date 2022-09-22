@@ -47,6 +47,15 @@ namespace OpenSilverMemoryLeak
             SP.Children.Remove(SP.Children.Last());
         }
     }
+
+    public class TestControl : TextBlock
+    {
+        private Model _model = new Model();
+
+        public TestControl()
+        {
+        }
+    }
 }
 
 
@@ -111,15 +120,5 @@ public class TestHandler
     public void Test()
     {
         Console.WriteLine("Test Handler");
-    }
-}
-
-
-public class TestControl : TextBlock
-{
-    private Model _model = new Model();
-
-    public TestControl()
-    {
     }
 }
