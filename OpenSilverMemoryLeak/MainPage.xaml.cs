@@ -36,7 +36,7 @@ namespace OpenSilverMemoryLeak
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            SP.Children.Add(new Grid
+            SP.Children.Add(new TestControl
             {
                 Name = "MyTest" + number++,
             });
@@ -50,10 +50,14 @@ namespace OpenSilverMemoryLeak
 
     public class TestControl : TextBlock
     {
-        private Model _model = new Model();
-
         public TestControl()
         {
+            Console.WriteLine("TestControl Created!");
+        }
+
+        ~TestControl()
+        {
+            Console.WriteLine("TestControl Deleted!");
         }
     }
 }
