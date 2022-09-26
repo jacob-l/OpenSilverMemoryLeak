@@ -16,6 +16,8 @@ namespace OpenSilverMemoryLeak
 {
     public partial class MainPage : Page
     {
+        public static readonly Model Data = new Model();
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -36,9 +38,10 @@ namespace OpenSilverMemoryLeak
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            SP.Children.Add(new Grid
+            SP.Children.Add(new XamlTestControl
             {
                 Name = "MyTest" + number++,
+                DataContext = Data
             });
         }
 
@@ -66,7 +69,7 @@ public class Model : INotifyPropertyChanged
 {
     public Model()
     {
-        Text = "12345";
+        Height = 10;
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -76,17 +79,17 @@ public class Model : INotifyPropertyChanged
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 
-    private string _text;
+    private int _height;
 
-    public string Text
+    public int Height
     {
         get
         {
-            return _text;
+            return _height;
         }
         set
         {
-            _text = value;
+            _height = value;
             OnPropertyChanged();
         }
     }

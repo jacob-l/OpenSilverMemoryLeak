@@ -17,6 +17,13 @@ namespace OpenSilverMemoryLeak
         public XamlTestControl()
         {
             this.InitializeComponent();
+
+            Console.WriteLine("XamlTestControl Created");
+        }
+
+        ~XamlTestControl()
+        {
+            Console.WriteLine("XamlTestControl Deleted");
         }
     }
 }
