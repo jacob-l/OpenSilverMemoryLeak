@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Media;
+using CSHTML5.Native.Html.Controls;
 using OpenSilver;
 
 namespace OpenSilverMemoryLeak
@@ -36,7 +37,7 @@ namespace OpenSilverMemoryLeak
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            SP.Children.Add(new Grid
+            SP.Children.Add(new TestNativeComboBox
             {
                 Name = "MyTest" + number++,
             });
@@ -45,6 +46,19 @@ namespace OpenSilverMemoryLeak
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             SP.Children.Remove(SP.Children.Last());
+        }
+    }
+
+    public class TestNativeComboBox : NativeComboBox
+    {
+        public TestNativeComboBox()
+        {
+            Console.WriteLine("Native Combo Box Created!");
+        }
+
+        ~TestNativeComboBox()
+        {
+            Console.WriteLine("Native Combo Box Deleted!");
         }
     }
 
