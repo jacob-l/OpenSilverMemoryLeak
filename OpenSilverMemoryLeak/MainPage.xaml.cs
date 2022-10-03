@@ -36,9 +36,10 @@ namespace OpenSilverMemoryLeak
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            SP.Children.Add(new Grid
+            SP.Children.Add(new TestControl
             {
                 Name = "MyTest" + number++,
+                Height = 10
             });
         }
 
@@ -48,12 +49,31 @@ namespace OpenSilverMemoryLeak
         }
     }
 
-    public class TestControl : TextBlock
+    public class TestControl : Control
     {
-        private Model _model = new Model();
 
         public TestControl()
         {
+            DefaultStyleKey = typeof(TestControl);
+            Console.WriteLine("TEST CONTROL CREATED");
+        }
+
+        ~TestControl()
+        {
+            Console.WriteLine("TEST CONTROL DELETED");
+        }
+    }
+
+    public class TestLabel: Label
+    {
+        public TestLabel()
+        {
+            Console.WriteLine("Label Created!");
+        }
+
+        ~TestLabel()
+        {
+            Console.WriteLine("Label Deleted!");
         }
     }
 }
