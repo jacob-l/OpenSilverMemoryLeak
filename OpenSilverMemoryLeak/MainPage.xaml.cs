@@ -51,16 +51,19 @@ namespace OpenSilverMemoryLeak
 
     public class TestControl : Control
     {
+        private static int counter = 0;
+        private int Id = 0;
 
         public TestControl()
         {
             DefaultStyleKey = typeof(TestControl);
-            Console.WriteLine("TEST CONTROL CREATED");
+            Id = counter++;
+            Console.WriteLine("TEST CONTROL CREATED " + Id);
         }
 
         ~TestControl()
         {
-            Console.WriteLine("TEST CONTROL DELETED");
+            Console.WriteLine("TEST CONTROL DELETED " + Id);
         }
     }
 

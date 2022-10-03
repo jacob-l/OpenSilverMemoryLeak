@@ -5,7 +5,14 @@
     xmlns:local="clr-namespace:OpenSilverMemoryLeak">
     <Application.Resources>
         <Style TargetType="local:TestControl">
-            <Setter Property="Background" Value="Red"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="local:TestControl">
+                        <ContentControl x:Name="ContentControl"
+                           Foreground="{TemplateBinding Foreground}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Application.Resources>
 </Application>
