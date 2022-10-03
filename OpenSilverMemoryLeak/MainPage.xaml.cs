@@ -48,10 +48,11 @@ namespace OpenSilverMemoryLeak
         }
     }
 
-    public class TestControl : TextBlock
+    public class TestControl : Control
     {
         public TestControl()
         {
+            DefaultStyleKey = typeof(TestControl);
             Console.WriteLine("TestControl Created!");
         }
 
