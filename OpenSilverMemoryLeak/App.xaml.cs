@@ -17,6 +17,7 @@ namespace OpenSilverMemoryLeak
 
             var mainPage = new MainPage();
             Window.Current.Content = mainPage;
+            //this.Host.Settings.EnableOptimizationWhereCollapsedControlsAreNotLoaded = true;
         }
     }
 }
